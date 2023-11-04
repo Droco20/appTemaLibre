@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -45,19 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _totalCuenta = int.tryParse(_totalCuentaController.text) ?? 0;
       _numeroPersonas = int.tryParse(_numeroPersonasController.text) ?? 1;
-      if (_propinaAleatoria) {
-        // Generar una propina aleatoria entre 5% y 20%.
-        final random = Random();
-        _propina =
-            ((_totalCuenta * (random.nextDouble() * 0.15 + 0.05)).round())
-                .toInt();
-      } else {
-        _propina = int.tryParse(_propinaController.text) ?? 0;
-      }
+      _propina = int.tryParse(_propinaController.text) ?? 0;
     });
   }
-
-  bool _propinaAleatoria = true;
 
   @override
   Widget build(BuildContext context) {
